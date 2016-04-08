@@ -1,3 +1,7 @@
+/* jshint undef: true, unused: true */
+/* globals Firebase, L, $, console */
+
+
 var bofDataRef = new Firebase( 'https://kitb1w34vt8.firebaseio-demo.com/bofs' );
 var map = L.map( 'mapid' );
 
@@ -24,8 +28,8 @@ function onLocationFound( e ) {
   L.circle( e.latlng, radius ).addTo( map );
 }
 
-function onLocationError( e ) {
-  alert( e.message );
+function onLocationError(  ) {
+  //do something
 }
 
 map.on( 'locationerror', onLocationError );
@@ -35,7 +39,7 @@ map.on( 'click', function ( e ) {
   $( '#bofModal' ).modal();
 } );
 
-$( '#bofModal' ).on( 'show.bs.modal', function ( event ) {
+$( '#bofModal' ).on( 'show.bs.modal', function () {
   //anything we need to do when modal is shown
 } );
 
@@ -70,7 +74,7 @@ var displayNewMarker = function ( marker) {
     .addTo( map );
 };
 
-$( "body" ).on( "click", ".intention button", function (e) {
+$( "body" ).on( "click", ".intention button", function () {
   var intention = $(this).attr('data-intention');
   console.log(intention);
   // store this someplace where it can be looked up....
